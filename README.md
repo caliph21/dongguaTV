@@ -428,7 +428,7 @@ docker run -d -p 3000:3000 \
 ### ▲ Vercel 部署
 适合零成本快速上线。
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fednovas%2FdongguaTV&env=TMDB_API_KEY,ACCESS_PASSWORD,TMDB_PROXY_URL,REMOTE_DB_URL)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fednovas%2FdongguaTV&env=TMDB_API_KEY,REMOTE_DB_URL,ACCESS_PASSWORD,TMDB_PROXY_URL&envDescription=TMDB_API_KEY%20and%20REMOTE_DB_URL%20are%20required.%20Others%20are%20optional.&envLink=https%3A%2F%2Fgithub.com%2Fednovas%2FdongguaTV%23-vercel-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9)
 
 *(请确保先将本项目fork到您自己的 GitHub 仓库，点击上方按钮即可一键导入部署)*
 
@@ -437,11 +437,10 @@ docker run -d -p 3000:3000 \
 在 Vercel 部署后，**必须正确配置环境变量**才能使用：
 
 1. **Settings → Environment Variables** 中添加以下变量：
-   - `TMDB_API_KEY` - TMDb API 密钥（必填）
+   - `TMDB_API_KEY` - TMDb API 密钥（**必填**）
+   - `REMOTE_DB_URL` - 远程站点配置 JSON 地址（**Vercel 必填**，因为无法读取本地 db.json）
    - `ACCESS_PASSWORD` - 访问密码（可选）
    - `TMDB_PROXY_URL` - 大陆用户反代地址（可选）
-   - `REMOTE_DB_URL` - 远程配置地址（可选）
-   - `CACHE_TYPE` - 建议设置为 `memory`（Serverless 环境推荐）
 
 2. **环境变量不生效？** 请按以下步骤排查：
 
